@@ -22,7 +22,7 @@ export default function Navbar() {
     ])
   return (
     <div>
-        <div className="w-full flex items-center justify-between">
+        <div className="w-screen flex items-center justify-between">
             <Link href={"/"}><Image src={LOGO} alt="menu" className="w-[100px] h-[100px] ml-10 cursor-pointer" /></Link>
             <div className="flex items-center gap-1 w-[400px] h-[50px] border-2 border-black">
                 <Image src={SEARCH} alt="search" className="ml-2" />
@@ -30,10 +30,10 @@ export default function Navbar() {
             </div>
             <Image src={HAMBURGER} alt="menu" className="w-[64px] h-[64px] cursor-pointer mr-10" onClick={() => setClicked(!clicked)} />
         </div>
-        <hr className="border-black border-1" />
+        <hr className="border-black border-1 w-screen" />
         {
             clicked && (
-                <div className="w-screen h-[400px] bg-black flex items-center gap-8 justify-center">
+                <div className="w-screen h-[400px] bg-black flex items-center gap-8 justify-center z-50">
                     {
                         list.map((item, index) => {
                             return (

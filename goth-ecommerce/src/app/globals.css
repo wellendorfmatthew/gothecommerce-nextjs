@@ -3,5 +3,14 @@
 @tailwind utilities;
 
 :root {
-  
+  --font-gravedigger: 'Gravedigger', sans-serif
+}
+
+@font-face {
+  font-family: 'Gravedigger';
+  src: url('../../public/GravediggerPersonalUse-K7ayW.ttf') format('truetype');
+}
+
+.gravedigger-font {
+  font-family: var(--font-gravedigger);
 }
