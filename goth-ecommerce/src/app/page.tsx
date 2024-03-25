@@ -25,7 +25,7 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-5 w-screen">
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
-            <Image src={ANIME} alt="" className="cursor-pointer" />
+            <Image src={ANIME} alt="" className="cursor-pointer hover:scale-150 delay-300 w-full" />
             <p>Anime Goth Shirt</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
