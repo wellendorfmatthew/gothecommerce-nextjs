@@ -11,6 +11,7 @@ import CROP from '../../../public/gothcroptop.jpg';
 import HOODIE from '../../../public/gothhoodie.jpg';
 import CART from '../../../public/cart.png';
 import AVATAR from '../../../public/avatar.png';
+import CLOSE from '../../../public/closetwo.png';
 import { useState } from "react";
 
 export default function Navbar() {
@@ -23,11 +24,10 @@ export default function Navbar() {
         {name: "Gothic Hoodie", image: HOODIE}
     ])
 
-    // const handleHamburgerMenu() => {
-    //     setClicked(!clicked);
+    const handleHamburgerMenu: () => void = () => {
+        setClicked(!clicked);
+    }
 
-    //     if (clicked)
-    // }
   return (
     <div className="overflow-hidden">
         <div className="w-screen flex items-center justify-between">
@@ -37,12 +37,15 @@ export default function Navbar() {
                 <input type="text" className="text-md bg-transparent outline-none w-full ml-2 pr-5" />
             </div>
             <div className="flex items-center gap-10">
-                <Image src={HAMBURGER} alt="menu" className="w-[32px] h-[32px] cursor-pointer mr-16" onClick={() => setClicked(!clicked)} />
+                <Image src={HAMBURGER} alt="menu" className="w-[32px] h-[32px] cursor-pointer mr-16" onClick={() => handleHamburgerMenu()} />
             </div>
         </div>
         {
             clicked && (
-                <div className="absolute right-0 top-[72px] h-screen w-[350px] bg-white border-black border-2">
+                <div className="absolute right-0 top-0 h-screen w-[350px] bg-white" id="dropdown">
+                    <div className="h-[100px] flex items-center">
+                        <Image src={CLOSE} alt="" className="ml-auto mr-12 cursor-pointer" onClick={() => handleHamburgerMenu()} />
+                    </div>
                     <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Products</p>
                     <hr className="border-black border-1 w-full mt-5" />
                     <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">About Us</p>
