@@ -46,15 +46,15 @@ export default function Navbar() {
                     <div className="h-[100px] flex items-center">
                         <Image src={CLOSE} alt="" className="ml-auto mr-12 cursor-pointer" onClick={() => handleHamburgerMenu()} />
                     </div>
-                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Products</p>
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70"><Link href={"/"}>Products</Link></p>
                     <hr className="border-black border-1 w-full mt-5" />
-                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">About Us</p>
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70"><Link href={"/"}>About Us</Link></p>
                     <hr className="border-black border-1 w-full mt-5" />
-                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Contact</p>
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70"><Link href={"/"}>Contact</Link></p>
                     <hr className="border-black border-1 w-full mt-5" />
-                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Cart</p>
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70"><Link href={"/"}>Cart</Link></p>
                     <hr className="border-black border-1 w-full mt-5" />
-                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Sign In</p> 
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70"><Link href={"/signin"}>Sign In</Link></p> 
                 </div>
             )
         }
