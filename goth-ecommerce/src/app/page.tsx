@@ -25,28 +25,28 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-5 w-screen">
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
-            <Image src={ANIME} alt="" className="cursor-pointer" />
-            <p>Anime Goth Shirt</p>
+            <Image src={ANIME} alt="" className="cursor-pointer hover:scale-150 delay-300 w-full" />
+            <p className="text-center">Anime Goth Shirt</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={CROPTOP} alt="" className="cursor-pointer" />
-            <p>Gothic Croptop</p>
+            <p className="text-center">Gothic Croptop</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={HOODIE} alt="" className="cursor-pointer" />
-            <p>Gothic Hoodie</p>
+            <p className="text-center">Gothic Hoodie</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-2 border-black gap-5">
             <Image src={HOOD_CROPTOP} alt="" className="cursor-pointer" />
-            <p>Gothic Hooded Croptop</p>
+            <p className="text-center">Gothic Hooded Croptop</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-l-2 border-black gap-5">
             <Image src={SWEATER} alt="" className="cursor-pointer" />
-            <p>Gothic Sweater</p>
+            <p className="text-center">Gothic Sweater</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
       </div>
@@ -56,27 +56,27 @@ export default function Home() {
       <div className="grid grid-cols-5 w-screen">
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={SHORTS} alt="" className="cursor-pointer" />
-            <p>Gothic Shorts</p>
+            <p className="text-center">Gothic Shorts</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={SKIRT} alt="" className="cursor-pointer" />
-            <p>Gothic Skirt</p>
+            <p className="text-center">Gothic Skirt</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={TROUSERS} alt="" className="cursor-pointer" />
-            <p>Gothic Trousers</p>
+            <p className="text-center">Gothic Trousers</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-2 border-black gap-5">
             <Image src={PANTS} alt="" className="cursor-pointer" />
-            <p>Gothic Pants</p>
+            <p className="text-center">Gothic Pants</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-l-2 border-black gap-5">
             <Image src={SWEATPANTS} alt="" className="cursor-pointer" />
-            <p>Gothic Sweatpants</p>
+            <p className="text-center">Gothic Sweatpants</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
       </div>
@@ -86,27 +86,27 @@ export default function Home() {
       <div className="grid grid-cols-5 w-screen">
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={BRACE} alt="" className="cursor-pointer" />
-            <p>Gothic Brace</p>
+            <p className="text-center">Gothic Brace</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={BEANIE} alt="" className="cursor-pointer" />
-            <p>Gothic Beanie</p>
+            <p className="text-center">Gothic Beanie</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-4 border-black gap-5">
             <Image src={NECKLACE} alt="" className="cursor-pointer" />
-            <p>Gothic Necklace</p>
+            <p className="text-center">Gothic Necklace</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-r-2 border-black gap-5">
             <Image src={COLLAR} alt="" className="cursor-pointer" />
-            <p>Gothic Collar</p>
+            <p className="text-center">Gothic Collar</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
           <div className="flex flex-col items-center border-l-2 border-black gap-5">
             <Image src={SLEEVES} alt="" className="cursor-pointer" />
-            <p>Gothic Sleeves</p>
+            <p className="text-center">Gothic Sleeves</p>
             <p className="font-semibold mb-5">$20.99</p>
           </div>
       </div>

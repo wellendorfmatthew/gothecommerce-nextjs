@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import HAMBURGER from '../../../public/134216_menu_lines_hamburger_icon.png';
+import HAMBURGER from '../../../public/more.png';
 import LOGO from '../../../public/updatedgglogo.png';
 import SEARCH from '../../../public/searchbar-icon.png';
 import ANIME from '../../../public/animegoth.jpg';
@@ -9,6 +9,9 @@ import BEANIE from '../../../public/gothbeanie.jpg';
 import BRACE from '../../../public/gothbrace.jpg';
 import CROP from '../../../public/gothcroptop.jpg';
 import HOODIE from '../../../public/gothhoodie.jpg';
+import CART from '../../../public/cart.png';
+import AVATAR from '../../../public/avatar.png';
+import CLOSE from '../../../public/closetwo.png';
 import { useState } from "react";
 
 export default function Navbar() {
@@ -20,20 +23,45 @@ export default function Navbar() {
         {name: "Gothic Croptop", image: CROP},
         {name: "Gothic Hoodie", image: HOODIE}
     ])
+
+    const handleHamburgerMenu: () => void = () => {
+        setClicked(!clicked);
+    }
+
   return (
-    <div>
+    <div className="overflow-hidden">
         <div className="w-screen flex items-center justify-between">
-            <Link href={"/"}><Image src={LOGO} alt="menu" className="w-[100px] h-[100px] ml-10 cursor-pointer" /></Link>
+            <Link href={"/"}><Image src={LOGO} alt="menu" className="w-[100px] h-[100px]  cursor-pointer" /></Link>
             <div className="flex items-center gap-1 w-[400px] h-[50px] border-2 border-black">
                 <Image src={SEARCH} alt="search" className="ml-2" />
                 <input type="text" className="text-md bg-transparent outline-none w-full ml-2 pr-5" />
             </div>
-            <Image src={HAMBURGER} alt="menu" className="w-[64px] h-[64px] cursor-pointer mr-10" onClick={() => setClicked(!clicked)} />
+            <div className="flex items-center gap-10">
+                <Image src={HAMBURGER} alt="menu" className="w-[32px] h-[32px] cursor-pointer mr-16" onClick={() => handleHamburgerMenu()} />
+            </div>
         </div>
-        <hr className="border-black border-1 w-screen" />
         {
             clicked && (
-                <div className="w-screen h-[400px] bg-black flex items-center gap-8 justify-center z-50">
+                <div className="absolute right-0 top-0 h-screen w-[350px] bg-white" id="dropdown">
+                    <div className="h-[100px] flex items-center">
+                        <Image src={CLOSE} alt="" className="ml-auto mr-12 cursor-pointer" onClick={() => handleHamburgerMenu()} />
+                    </div>
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Products</p>
+                    <hr className="border-black border-1 w-full mt-5" />
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">About Us</p>
+                    <hr className="border-black border-1 w-full mt-5" />
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Contact</p>
+                    <hr className="border-black border-1 w-full mt-5" />
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Cart</p>
+                    <hr className="border-black border-1 w-full mt-5" />
+                    <p className="text-3xl gravedigger-font font-semibold mt-5 text-center cursor-pointer hover:opacity-70">Sign In</p> 
+                </div>
+            )
+        }
+        <hr className="border-black border-1 w-screen" />
+        {/*
+            clicked && (
+                <div className="w-screen h-[400px] bg-black flex items-center gap-8 justify-center z-50 absolute">
                     {
                         list.map((item, index) => {
                             return (
@@ -47,7 +75,7 @@ export default function Navbar() {
                     }
                 </div>
             )
-        }
+                */}
     </div>
   );
 }
