@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ export default function Signup() {
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [error, setError] = useState("");
+    const router = useRouter();
 
     const handleEmail = (validateEmail : string) : boolean => {
         console.log("email ", validateEmail)
@@ -72,13 +74,39 @@ export default function Signup() {
         return true;
     }
 
-    const handleSubmit = () => {
-        const validEmail = handleEmail(email);
-        const validPassword = handlePassword(password);
-        if (validEmail && validPassword) {
-            setError("Successfully signed in");
-        } else {
-            setError("Error logging in");
+    const handleSubmit = async () => {
+        // const validEmail = handleEmail(email);
+        // const validPassword = handlePassword(password);
+        // if (validEmail && validPassword) {
+        //     setError("Successfully signed in");
+        // } else {
+        //     setError("Error logging in");
+        // }
+        try {
+            const response = await fetch("http://localhost:3000/api/signup", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+
+            console.log(response);
+
+            if (!response.ok) {
+                console.log(response);
+                throw Error("Error")
+            }
+
+            const data = await response.json();
+            console.log(data);
+            // console.log(typeof data.session);
+            // console.log(data.session);
+            
+            router.push("/");
+            
+        } catch (error) {
+            console.log(error);
         }
     }
     
