@@ -87,7 +87,14 @@ export default function Signin() {
     
             if (!response.ok) {
                 console.log(response);
-                throw Error("Error")
+                if (response.status === 406) {
+                    throw new Error("Credentials do not much");
+                }
+                else if (response.status === 404) {
+                    throw new Error("No account associated with that email");
+                } else {
+                    throw new Error("Unable to sign in please try again");
+                }
             }
     
             const data = await response.json();
@@ -95,7 +102,7 @@ export default function Signin() {
             // console.log(typeof data.session);
             // console.log(data.session);
             return true;
-        } catch (error) {
+        } catch (error : any) {
             return error;
         }
     }
@@ -111,7 +118,8 @@ export default function Signin() {
                 router.push("/");
                 return;
             } else {
-                // setError(signinResponse?.error);
+                setError(signinResponse);
+                return;
             }
         } else {
             return;
@@ -129,7 +137,7 @@ export default function Signin() {
                     <input type="password" className="border-black border-2 w-full h-12 pl-1" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                     <div className="w-full h-12 flex items-start justify-center text-red-500 text-center">{passwordError}</div>
                     <button className="w-full h-12 font-semibold bg-black text-white border-2 border-black hover:text-black hover:bg-white transition-all delay-75" onClick={handleSubmit}>Login</button>
-                    <div className="w-full h-12 flex items-start justify-center text-red-500 text-center">{error}</div>
+                    <div className="w-full h-12 flex items-start justify-center text-red-500 text-center">{error && error.toString()}</div>
                 </div>
                 <p className="text-center">Don't have an account? <Link href={"/signup"} className="font-semibold hover:underline">Sign up here</Link></p>
             </div>

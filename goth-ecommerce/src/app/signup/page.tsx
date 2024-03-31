@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Signup() {
     const [email, setEmail] = useState("");
@@ -74,14 +74,7 @@ export default function Signup() {
         return true;
     }
 
-    const handleSubmit = async () => {
-        // const validEmail = handleEmail(email);
-        // const validPassword = handlePassword(password);
-        // if (validEmail && validPassword) {
-        //     setError("Successfully signed in");
-        // } else {
-        //     setError("Error logging in");
-        // }
+    const handleSignup = async () => {
         try {
             const response = await fetch("http://localhost:3000/api/signup", {
                 method: "POST",
@@ -94,19 +87,39 @@ export default function Signup() {
             console.log(response);
 
             if (!response.ok) {
-                console.log(response);
-                throw Error("Error")
+                if (response.status === 412) {
+                    throw new Error("An account with that email already exists")
+                } else {
+                    throw new Error("Unable to sign up please try again")
+                }
             }
 
             const data = await response.json();
             console.log(data);
             // console.log(typeof data.session);
             // console.log(data.session);
+            return true;
             
-            router.push("/");
-            
-        } catch (error) {
-            console.log(error);
+        } catch (error: any) {
+            return error;
+        }
+    }
+
+    const handleSubmit = async () : Promise<void> => {
+        const validEmail = handleEmail(email);
+        const validPassword = handlePassword(password);
+        if (validEmail && validPassword) {
+            // setError("Successfully signed in");
+            const signinResponse = await handleSignup();
+            if (signinResponse === true) {
+                router.push("/");
+                return;
+            } else {
+                setError(signinResponse);
+                return;
+            }
+        } else {
+            return;
         }
     }
     
